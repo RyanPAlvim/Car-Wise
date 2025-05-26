@@ -1,3 +1,7 @@
+<?php
+require 'dados.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -34,61 +38,25 @@
             <button type="submit" class="hover:cursor-pointer"><i class="bi bi-search"></i></button>
         </form>
         
-        <!--Lisra de Carros-->
+        <!--Lista de Carros-->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!--Carro-->
-            <div class="p-2 rounded bg-slate-800 border-2 border-sky-800">
+            <?php foreach($carros as $carro): ?>
+            <div class="p-2 space-y-2 rounded bg-slate-800 border-2 border-sky-800">
                 <div class="flex">
                     <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Nome</div>
-                        <div class="text-xs italic">12/10/2022</div>
+                    <div class="space-y-1">
+                        <a href="/carro.php?id=<?=$carro['id']?>" class="font-bold hover:underline"><?=$carro['nome']?></a>
+                        <div class="text-xs italic"><?=$carro['data']?></div>
                         <div class="text-xs italic">⭐⭐⭐⭐⭐ (3 avaliações)</div>
                     </div>
                 </div>
                 <div class="text-sm">
-                    Comentário
+                    <?=$carro['descricao']?>
                 </div>
             </div>
-            <div class="p-2 rounded bg-slate-800 border-2 border-sky-800">
-                <div class="flex">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Nome</div>
-                        <div class="text-xs italic">12/10/2022</div>
-                        <div class="text-xs italic">⭐⭐⭐⭐⭐ (3 avaliações)</div>
-                    </div>
-                </div>
-                <div class="text-sm">
-                    Comentário
-                </div>
-            </div>
-            <div class="p-2 rounded bg-slate-800 border-2 border-sky-800">
-                <div class="flex">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Nome</div>
-                        <div class="text-xs italic">12/10/2022</div>
-                        <div class="text-xs italic">⭐⭐⭐⭐⭐ (3 avaliações)</div>
-                    </div>
-                </div>
-                <div class="text-sm">
-                    Comentário
-                </div>
-            </div>
-            <div class="p-2 rounded bg-slate-800 border-2 border-sky-800">
-                <div class="flex">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Nome</div>
-                        <div class="text-xs italic">12/10/2022</div>
-                        <div class="text-xs italic">⭐⭐⭐⭐⭐ (3 avaliações)</div>
-                    </div>
-                </div>
-                <div class="text-sm">
-                    Comentário
-                </div>
-            </div>
+            <?php endforeach; ?>
+        
 
         </section>
 
